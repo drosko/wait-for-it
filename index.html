@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Wait For It Demo</title>
+  <style>
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1em;
+    }
+  </style>
+</head>
+<body>
+
+<script src="js/wfi.js"></script>
+<script>
+  
+  wfi(
+    function(){
+        $(document).ready(function(){
+            $('#firstJquery').fadeIn(1000);
+        })
+    }
+  );
+
+  wfi('angular', 
+    function(){
+        $('#firstAngular').fadeIn(3000);
+    },
+    function(){
+        $('#secondAngular').fadeIn(4000);
+    }
+  );
+</script>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+    <div id="demoDiv">
+        <p id="firstJquery" style="display: none;">jQuery is now defined</p>
+        <p id="firstAngular" style="display: none;">Angular is defined, first function executed.</p>
+        <p id="secondAngular" style="display: none;">Angular is defined, second function executed.</p>
+    </div>
+</body>
+</html>
